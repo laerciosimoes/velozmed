@@ -47,30 +47,3 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
-$(document).ready(function () {
-   
-    var specialty = $("#cmbSpecialty");
-    var url = "http://velozmed.azurewebsites.net/api/Specialties";
-
-    $.getJSON(url, function (data) {
-        specialty.html('');
-        for (i = 0; i < data.length; i++) {
-            specialty.append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
-        }
-        specialty.append('</select>');
-    });
-
-
-
-    var healthInsurance = $("#cmbHealthInsurance");
-    var url = "http://velozmed.azurewebsites.net/api/HealthInsurances";
-
-    $.getJSON(url, function (data) {
-        healthInsurance.html('');
-        for (i = 0; i < data.length; i++) {
-            healthInsurance.append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
-        }
-        healthInsurance.append('</select>');
-    })
-});

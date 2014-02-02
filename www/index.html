@@ -1,62 +1,43 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/Site.css" />
-        <title>Velozmed</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
     </head>
-<body>
-    <div class="navbar nav-navbar-fixed-top">
-        <div class="container">
-            <div class="header topo">
-                <a href="inedx.html" title="VelozMed - Página inicial"><img src="Images/logo.jpg" class="logo"  alt="Logo Velozmed" /></a>
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li class="menu"><a href="Menu.html">Menu</a></li>
-                </ul>
+    <body>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="home container">
-            <div class="foto" style="background: url('Images/foto1.jpg') top right no-repeat">
-                <img src="Images/fotodegrade.png" />
-            </div>
-
-            <div class="formbusca">
-            <h1>Agende sua <b>consulta</b></h1>
-            <h2>Chega de esperar semanas para ser atendido por um médico. Marque <b>aqui</b> sua consulta e seja atendido em até <b>07 dias</b>.</h2>
-                <form class="form" id="form1" method="post" action="http://velozmed.azurewebsites.net/Search">
-                    <ul>
-                        <li>
-                            <label class="label" for="cmbSpecialty">Especialidade</label>
-                            <select id="cmbSpecialty" name="cmbSpecialty" class="campo"></select>
-                        </li>
-                        <li>
-                            <label class="label" for="txtDistrict">Bairro ou CEP</label>
-                            <input id="txtDistrict" name="txtDistrict" class="campo" />
-                        </li>
-                        <li>
-                            <label class="label" for="cmbHealthInsurance">Convênio</label>
-                            <select id="cmbHealthInsurance" name="cmbHealthInsurance" placeholder="CONVÊNIO" class="campo"></select>
-                        </li>
-                        <li>
-                            <button type="button" id="btnSearch"><span><b>procurar médico</b></span></button>
-                        </li>
-                    </ul>
-
-                </form>
-        </div>
-    </div>
-    </div>
-    <div class="faixafinal container">
-        <p>Copyright. 2013. <a href="#">VELOZMED</a>. Todos os direitos reservados.</p>
-    </div>
-    <script src="js/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-</body>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
 </html>

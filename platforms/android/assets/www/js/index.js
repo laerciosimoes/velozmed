@@ -49,7 +49,36 @@ var app = {
 };
 
 $(document).ready(function () {
-   
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            position.coords
+            console.log('Your latitude is :' + lat + ' and longitude is ' + long);
+            var coord = lat.toString() + '|' + long.toString();
+            $.get("api/location", { id: coord }, function (data) {
+                $("#txtDistrict").val(data);
+            });
+        }, function error(err) {
+            console.warn('ERROR(' + err.code + '): ' + err.message);
+        });
+    }
+
+
+    $("#btnSearch").click(function () {
+        console.log("Click Search");
+        if ($("#cmbSpecialty").val() == "0" || $("#cmbSpecialty").val() == null) {
+            alert("Necessario selecionar a Especialidade");
+            return false;
+        }
+        if ($("#cmbHealthInsurance").val() == null) {
+            alert("Necessario Selecionar o Tipo de Convenio");
+            return false;
+        }
+        $("#form1").submit();
+    });
+
+
     var specialty = $("#cmbSpecialty");
     var url = "http://velozmed.azurewebsites.net/api/Specialties";
 

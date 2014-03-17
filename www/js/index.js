@@ -48,58 +48,179 @@ var app = {
     }
 };
 
+
+function CallSearch() {
+    // Set LocalStorage
+    localStorage.Specialty = $("#cmbSpecialty").val();
+    localStorage.District = encodeURIComponent($("#txtDistrict").val());
+    localStorage.HealthInsurance = $("#cmbHealthInsurance").val();
+    localStorage.DateRequest = $("#cmbData").val();
+    localStorage.SearchURL = "/Search/" +
+                            "?Specialty=" + localStorage.Specialty +
+                            "&District=" + localStorage.District +
+                            "&HealthInsurance=" + localStorage.HealthInsurance +
+                            "&DateRequest=" + localStorage.DateRequest;
+
+    window.location = localStorage.SearchURL;
+
+}
+
 $(document).ready(function () {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var lat = position.coords.latitude;
-            var long = position.coords.longitude;
-            position.coords
-            console.log('Your latitude is :' + lat + ' and longitude is ' + long);
-            var coord = lat.toString() + '|' + long.toString();
-            $.get("api/location", { id: coord }, function (data) {
-                $("#txtDistrict").val(data);
-            });
-        }, function error(err) {
-            console.warn('ERROR(' + err.code + '): ' + err.message);
-        });
+    if (localStorage.District == false) {
+        if ($("#txtDistrict").val().trim() == "") {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    position.coords
+                    console.log('Your latitude is :' + lat + ' and longitude is ' + long);
+                    var coord = lat.toString() + '|' + long.toString();
+                    $.get("api/location", { id: coord }, function (data) {
+                        $("#txtDistrict").val(data);
+                    });
+                }, function error(err) {
+                    console.warn('ERROR(' + err.code + '): ' + err.message);
+                });
+            }
+        }
     }
 
+    $.getJSON("http://velozmed.azurewebsites.net/api/SpecialtyByHealthInsurance", { id: 0 }, function (json) {
+        var combo = $("#cmbSpecialty");
+        combo.empty();
+        $.each(json, function (index, value) {
+          
+                selected = "";
+            
+            combo.append('<option value="' + index + '"' + selected + '>' + value + '</option>');
+        });
+     
+    });
 
-    $("#btnSearch").click(function () {
-        console.log("Click Search");
+   
+      
+
+        var healthInsurance = $("#cmbHealthInsurance");
+        var url = "http://velozmed.azurewebsites.net/api/HealthInsurances";
+
+        $.getJSON(url, function (data) {
+            healthInsurance.html('');
+            for (i = 0; i < data.length; i++) {
+                healthInsurance.append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+            }
+            healthInsurance.append('</select>');
+        })
+
+
+
+
+    $("#cmbSpecialty").change(function () {
+        var specialty = $("#cmbSpecialty").val();
+        var healthInsuranceVal = $("#cmbHealthInsurance").val();
+        $.getJSON("http://velozmed.azurewebsites.net/api/HealthInsuranceBySpecialty", { id: specialty }, function (json) {
+            var combo = $("#cmbHealthInsurance");
+            var selected = "";
+            console.log(combo);
+            combo.empty();
+            $.each(json, function (index, value) {
+                if (healthInsuranceVal == index) {
+                    selected = 'selected="selected"';
+                } else {
+                    selected = "";
+                }
+
+                combo.append('<option value="' + index + '"' + selected + '>' + value + '</option>');
+            });
+
+        });
+    });
+
+    $("#cmbHealthInsurance").change(function () {
+        var healthInsurace = $("#cmbHealthInsurance").val();
+        var specialtyVal = $("#cmbSpecialty").val();
+        var selected = "";
+
+        $.getJSON("http://velozmed.azurewebsites.net/api/SpecialtyByHealthInsurance", { id: healthInsurace }, function (json) {
+            var combo = $("#cmbSpecialty");
+
+            combo.empty();
+            $.each(json, function (index, value) {
+                if (specialtyVal == index) {
+                    selected = 'selected="selected"';
+                } else {
+                    selected = "";
+                }
+
+                combo.append('<option value="' + index + '"' + selected + '>' + value + '</option>');
+            });
+
+        });
+    });
+
+    $("#imgSearch").click(function () {
+
         if ($("#cmbSpecialty").val() == "0" || $("#cmbSpecialty").val() == null) {
             alert("Necessario selecionar a Especialidade");
+            return false;
+        }
+        if ($("#txtDistrict").val().trim() == "") {
+            alert("Necessario informar Bairro ou Cep");
             return false;
         }
         if ($("#cmbHealthInsurance").val() == null) {
             alert("Necessario Selecionar o Tipo de Convenio");
             return false;
         }
-        $("#form1").submit();
+
+        localStorage.SearchParam = "";
+        CallSearch();
+
+    });
+
+    $("#btnSearch").click(function () {
+
+        if ($("#cmbSpecialty").val() == "0" || $("#cmbSpecialty").val() == null) {
+            alert("Necessario selecionar a Especialidade");
+            return false;
+        }
+        if ($("#txtDistrict").val().trim() == "") {
+            alert("Necessario informar Bairro ou Cep");
+            return false;
+        }
+        if ($("#cmbHealthInsurance").val() == null) {
+            alert("Necessario Selecionar o Tipo de Convenio");
+            return false;
+        }
+        CallSearch();
     });
 
 
-    var specialty = $("#cmbSpecialty");
-    var url = "http://velozmed.azurewebsites.net/api/Specialties";
-
-    $.getJSON(url, function (data) {
-        specialty.html('');
-        for (i = 0; i < data.length; i++) {
-            specialty.append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+    $("input[name='campoData']").change(function () {
+        if ($(this).val() == "0" && $(this).is(":checked")) {
+            $('#liData').hide();
         }
-        specialty.append('</select>');
+        if ($(this).val() == "1" && $(this).is(":checked")) {
+            $('#liData').show();
+        }
     });
 
 
+    if (localStorage.Specialty) {
+        $("#cmbSpecialty").val(localStorage.Specialty);
+    }
+    if (localStorage.District) {
+        $("#txtDistrict").val(decodeURIComponent(localStorage.District));
+    }
+    if (localStorage.HealthInsurance) {
+        $("#cmbHealthInsurance").val(localStorage.HealthInsurance);
+    }
 
-    var healthInsurance = $("#cmbHealthInsurance");
-    var url = "http://velozmed.azurewebsites.net/api/HealthInsurances";
-
-    $.getJSON(url, function (data) {
-        healthInsurance.html('');
-        for (i = 0; i < data.length; i++) {
-            healthInsurance.append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+    if (localStorage.DateRequest) {
+        $("#cmbData").val(localStorage.DateRequest);
+        if ($("#cmbData").val() == null) {
+            $("#cmbData option:first").attr('selected', 'selected');
         }
-        healthInsurance.append('</select>');
-    })
+    }
 });
+
+

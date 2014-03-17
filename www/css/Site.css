@@ -11,7 +11,7 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td, h1, h2, button {
+table, caption, tbody, tfoot, thead, tr, th, td,  button {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -32,10 +32,9 @@ table {border-spacing: 0; } /* IMPORTANT, I REMOVED border-collapse: collapse; F
 
 /*Estilos gerais*/
 body { background:#fff;font-family: 'Roboto Slab', serif;}
-.container { float:left;width:100%; }
 .auto { width:1024px;margin:0px auto; }
 .topo .container {padding:15px 0px 10px 0px; }
-.topo img.logo { float:left; padding-top: 10px;}
+.topo img.logo { float:left; padding-top: 10px; margin-left: 10%;}
 .topo ul { float:right; margin-top:15px; margin-right: 15px; }
 .topo ul li { display:inline-block;padding-left:20px; }
 .topo li a { color:#097b40;font-size:18px;padding:5px 10px; }
@@ -59,27 +58,43 @@ body { background:#fff;font-family: 'Roboto Slab', serif;}
     font-size: 14px;
 }
 
-.home.container { height:500px;overflow:hidden;background:#097b40; }
-.home .foto { width:50%;float:left; }
+.home.container { overflow:hidden; }
+
+.home .foto { 
+    width:50%;
+    float:left; 
+    background: url(Images/foto1.jpg);
+}
+
 .formbusca, .internabarra { background:#097b40;color:#fff }
-.home .formbusca { padding: 20px 0px 20px 45px;width:460px;float:left; }
-.home h1 { text-transform: uppercase;font:32px'Roboto Slab';padding-top:15px;text-shadow: #000 1px 1px 4px }
-.home h2 { font:14px'Roboto Slab';padding-top:15px;text-shadow: #000 1px 1px 1px}
-.home .form { float:left;width:100%;margin-top:25px;padding-top:20px;background: url(Images/line.gif) top left no-repeat; }
+.home .formbusca { padding-left: 20px; padding-right: 20px; width:570px; width:50%;  float:left; }
+.home h1 { text-transform: uppercase;font:32px'Roboto Slab'; text-shadow: #000 1px 1px 4px; text-align: center; }
+.home h2 { font:14px'Roboto Slab';text-shadow: #000 1px 1px 1px; text-align: center;}
+.home .form { float:left;width:100%;padding-top:20px;background: url(Images/line.gif) top left repeat-x; }
 .home .form li { background:#228853;padding:6px 6px 6px 0px;margin-bottom:7px;float:left;clear:both; width: 100%;}
 .formbusca .label { float:left;width:165px;padding:8px 16px;color:#99fbc8;font: bold 14px 'Roboto Slab';text-align:left;text-shadow: #000 1px 1px 1px;text-transform: uppercase; }
-.formbusca input.campo { width:220px;height:25px;float:right;padding:5px 5px 5px 5px;border:0px;background-color: #fff; }
+.formbusca input.campo { 
+    font-family: 'Roboto Slab';
+    font-size: 14px;
+    width: 320px;
+    height:35px;
+    float:right;
+    padding:5px 5px 5px 8px;
+    border:0px;
+    background-color: #fff; 
+    color: black;
+}
 
-.formbusca input.campo.seta { width:215px;padding:5px 25px 5px 5px;background: #fff url(Images/iconseta.gif) 220px 13px no-repeat; }
 
 .formbusca select.campo { 
     font-family: 'Roboto Slab'; 
     font-size: 14px; 
-    width:220px;
+    width:320px;
     height:35px;
     float:right;
     padding:5px 5px 5px 5px;
     border:0px; 
+    color: black;
 
 }
 .formbusca select.campo.seta { 
@@ -90,17 +105,17 @@ body { background:#fff;font-family: 'Roboto Slab', serif;}
 
 
 .formbusca input.check { margin-top:8px; }
-.formbusca input.radio { margin: 8px 0px 0px 0px; }
+.formbusca li div input.radio { margin: 8px 6px 7px 40px; display: inline; }
 .formbusca li label.opcao { font-size:13px;padding-top:8px; }
 .home .form button { 
-    margin-top:20px;
+    margin-top:0px;
     cursor:pointer;
     border-radius:40px;
     font-size:22px;
     border:6px solid #fff;
     float:left; 
     width: 80%;
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 .home .form button span { 
@@ -110,11 +125,11 @@ body { background:#fff;font-family: 'Roboto Slab', serif;}
     text-align:center;
     width:100%;
     border:6px solid #097b40;
-    background: #189be0 url(Images/iconlupa.png) 10px 8px no-repeat;
+    background: #189be0 url(Images/iconlupa.png) 10px 6px no-repeat;
     float:left; 
 }
 
-.internabarra { padding:7px 0px;height:46px;}
+.internabarra { padding:7px 0px;height:46px;margin-bottom: 20px;border-radius: 7px;}
 .interna .formbusca *, .interna .formbusca .form { float:left; }
 .internabarra .formbusca h1 { font:16px'Roboto Slab';padding:5px 0px;text-transform: uppercase; }
 .internabarra .formbusca ul, .internabarra .formbusca li { float:left; }
@@ -139,17 +154,187 @@ body { background:#fff;font-family: 'Roboto Slab', serif;}
 .rodape .mapasite li a:hover { background-color:#e3f5ff !important;}
 .rodape .mapasite li.cadastro a { width:240px;color:#fff;padding-left:40px !important;background-position: 6px 19px !important; background-color:#189be0 !important; }
 
-.faixafinal { float:left;width:100%;background:#000;text-align: center;padding:10px 0px;font:12px arial;color:#fff; }
+.faixafinal { float:left;width:100%;background:#000;text-align: center;padding:10px 0px;font:12px arial;color:#fff;margin-top: 20px; }
 .faixafinal a { color:#26da7d;font-weight: bold;text-decoration: none }
 
 .comboSearch {
     width: 150px;
+    color: black;
+}
+
+#txtDistrict {
+    color: black;
+}
+
+
+
+#divData {
+    float: right;
+    display: block;
+
+}
+
+
+#menuUserName  {
+	margin-top: 35px;
+	background-color:#ffffff;
+}
+
+#menuUserName ul {
+	padding:0px;
+	margin:0px;
+	background-color:#ffffff;
+	list-style:none;
+    float: right;
+}
+
+#menuUserName ul li { display: inline; }
+#menuUserName ul li a {
+	padding: 2px 10px;
+	display: inline-block;
+ 	text-decoration: none;
+	 color: #097b40;
+     font-size: 12px;
+     font-weight:bold;
+}
+
+
+.spnUserName {
+    font-size: 12px;
+     color: #189be0;
+}
+
+
+
+.searchText {
+    background-color: #95fffc;
+    height: 35px;
+    font-family: Roboto Slab;
+    font-size: 12px;
+    padding-top: 8px;
+    text-align: center;
+    margin: 10px 100px 10px 100px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.loginForm {
+    width: 80%;
+    margin: 0 auto;
 }
 
 /*
+    Dialog Formart
+------------------------------------------------------------------- */
+.ui-dialog .ui-dialog-buttonpane button {
+    margin: .5em .4em .5em 0;
+    cursor: pointer;
+    background-color: #189be0;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    font-family: Verdana,Arial,sans-serif;
+    font-variant: small-caps;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#divAppointment {
+    background-color: #dadada;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.lblAppoinment{
+     margin-top: 10px;
+}
+.rdAppointment {
+     margin-top: 10px;
+}
+.txtAppointment {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+
+     margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+.lblAppoinmentInfo {
+    font-variant: normal;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+
+
+.liWho {
+    display: none;
+}
+
+.lblAppoinmentMessage {
+    font-size: 10px;
+}
+
+#txtPhone {
+    margin-top: 0px;
+}
+
+.infohome {
+    margin-left: 10%;
+}
+
+#imgPhysician {
+    border: 3px solid #097b40;
+    border-radius: 10px;
+    width: 86px;
+    height: 86px;
+}
+
+.appHighlight {
+    margin-top: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #097b40;
+}
+
+.appDate {
+    float: left;
+    width: 320px;
+    padding: 5px 24px;
+    text-align: center;
+    background: #097b40;
+   border-radius: 5px;
+    font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.appText {
+    font: 11px Arial, Helvetica, sans-serif;
+    list-style: none;
+}
+
+.appBold {
+    font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#dialog-physician {
+    width: 800px;
+}
+
+#cmbPlan {
+    width: 370px;
+    border-radius: 7px;
+}
+/*
 Table Style - This is what you want
 ------------------------------------------------------------------ */
-.conteudo { margin-top:25px;float:left }
+.conteudo { margin-top:25px;float:left; min-height: 300px; }
 .resultado
 table a:link {
 	color: #666;
@@ -191,8 +376,7 @@ table {
 table th {
 	text-transform: uppercase;
 	padding:21px 25px 22px 25px;
-	border-top:1px solid #fafafa;
-	border-bottom:1px solid #e0e0e0;
+	border:1px solid #e0e0e0;
 
 	background: #ededed;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
@@ -277,7 +461,7 @@ table tr:hover td {
 .resultado .pessoa .info { float:left;margin-left:15px;width:260px; }
 .resultado .pessoa .medico { font:bold 15px arial; }
 .resultado .pessoa .foto { text-align:center;float:left;width:80px; }
-.resultado .pessoa .foto img { border:3px solid #097b40;border-radius:10px; }
+.resultado .pessoa .foto img { border:3px solid #097b40;border-radius:10px; width: 86px; height: 86px; }
 .resultado .pessoa .locais { margin-top:7px;width:100%;color:#8c8c8c;float:left;font:11px arial; }
 .resultado .pessoa .locais li { list-style:none;width:100%;clear:both;padding:3px 0px }
 .resultado .pessoa .locais b, .resultado .pessoa .locais em { float:left; }
@@ -287,12 +471,12 @@ table tr:hover td {
 .resultado table table { width:530px !important;float:left;}
 .resultado table table, .resultado table table td { background:#fff !important; }
 .resultado table table th { padding:5px; width: 90px;text-align: center; }
-.resultado table table td { padding:1px 2px; width: 90px;}
-.resultado table table a { padding:2px;float:left;width:100%;font-size:14px;background-color:#097b40;color:#fff !important;margin:1px 0px 2px 0px;text-shadow: 1px 1px 0px #666; }
+.resultado table table td { padding:1px 2px; width: 200px;}
+.resultado table table a { padding:2px;float:left;width:100%;font-size:14px;background-color:#097b40;color:#fff !important;margin:1px 0px 2px 0px;text-shadow: 1px 1px 0px #666; border-radius: 8px;}
 .resultado table table a:hover, .resultado table table a.vermais { background-color:#189be0; }
 .resultado table table a.vermais { font-size:12px; }
-.resultado table table td.voltar, .resultado table table td.proximo { width:20px;padding:0px 3px;vertical-align: middle;text-align:center; }
-.resultado table table td.voltar a, .resultado table table td.proximo a { background:#189be0;padding:0px 2px;border-radius:20px;width:20px;text-align:center;font:bold 20px arial; }
+.resultado table table td.voltar, .resultado table table td.proximo { width:20px;padding:0px 10px;vertical-align: middle;text-align:center; }
+.resultado table table td.voltar a, .resultado table table td.proximo a { background:#189be0;padding:0px 2px;border-radius:24px;width:24px;text-align:center;font:bold 20px arial; }
 .resultado table table a span.spanlocal { float:right;padding:1px 5px; }
 .resultado table table th.dataescolhida, .resultado table table td.dataescolhida {
 	background: -webkit-gradient(linear, left top, left bottom, from(#f1f58e), to(#f1f58e));
@@ -312,7 +496,7 @@ padding: 0 10px;
 text-align: justify;
 }
 
-.webGrid { margin: 40px; border-collapse: collapse; width: 800px;  background-color:#B4CFC3; }
+.webGrid { margin: 40px; border-collapse: collapse; width: 95%;  background-color:#B4CFC3; }
 
 .webGrid th, .webGrid td { text-align: left; border: 1px solid #C0C0C0; padding: 5px; }
    
@@ -335,7 +519,53 @@ text-align: justify;
 .ui-helper-hidden-accessible {
     display: none;
 }
+.adminTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 3%;
+}
 
+.btn-save {
+    margin-left: 3%;
+}
+
+.tdButtons {
+    width: 75px;
+}
+/* Large desktop */
+@media (min-width: 800px ) and (max-width: 1200px) { 
+    .home .form button { font-size: 18px;}
+    .formbusca li div input.radio { margin: 3px 5px 0px 0px;}
+    .formbusca select.campo {font-size: 12px;width: 100%;height: 20px;padding: 0px;}
+    .formbusca input.campo {width: 100%;height: 20px;padding: 0px;}
+    .home h1 { font: 24px'Roboto Slab';}
+    .home h2 { font: 12px'Roboto Slab'; padding-top: 10px; }
+    .home.container { height:500px; }
+    .home .formbusca { padding-left: 10px; padding-right: 10px; max-width:570px; height:500px; float:left; }
+    .formbusca .label {width: 100%;padding: 0px 4px;font: bold 12px 'Roboto Slab';}
+}
+
+/* Large desktop */
+@media (max-width: 800px) { 
+    .home .foto { display: none;}
+    .home .formbusca { width:100%; }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) { 
+    .home.container { height:500px; }
+    .home .formbusca { padding-left: 20px; padding-right: 20px; max-width:570px; height:500px; float:left; }
+}
+
+@media (max-width: 640px) {
+    .formbusca li div input.radio {margin: 8px 6px 6px 20px;}
+}
+
+@media (max-width: 600px) {
+    .formbusca li div input.radio {margin: 8px 6px 6px 20px;}
+    .formbusca select.campo { width: 100%; }
+    .formbusca input.campo { width: 100%; }
+}
 
 
 /* Landscape phones and down */
@@ -370,6 +600,7 @@ text-align: justify;
     }
         
     .faixafinal {
+        margin-top: 20px;
         font: 10px arial;
     }
 
@@ -439,7 +670,654 @@ text-align: justify;
 
 }
 
-/* Large desktop */
-@media (min-width: 1200px) { 
 
+/* 
+    Minhas Consultas
+*/
+
+.proximaConsultaGeral{
+	float:left;
+	padding:0;
+	width:958px;
+ 
+}
+.proximaConsultaGeral .barra{
+	float:left;
+	padding:0;
+	background:url(Images/barraConsultaConfirmada.jpg) no-repeat;
+	width:958px;
+	height:38px;
+}
+
+
+.proximaConsultaGeral .consultaGeral .caixaDr{
+	float:left;
+	width:350px;
+	height:200px;
+}
+.proximaConsultaGeral .consultaGeral .caixaLinha{
+	float:left;
+	background:url(Images/linhaConsultasConfirmadas.jpg) no-repeat 3px 0;
+	width:10px;
+	height:200px;
+}
+.proximaConsultaGeral .consultaGeral .caixaData{
+	float:left;
+	width:250px;
+	height:200px;
+}
+.proximaConsultaGeral .consultaGeral .caixaMapa{
+	float:right;
+	width:325px;
+	height:200px;
+}
+
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral{
+	float:left;
+	width:180px;
+	padding:5px;
+	height:150px;
+	border:none;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto1Geral{
+	float:left;
+	padding:0 10px 10px;
+	width:170px;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto1Geral .texto1{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#799b28;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto1Geral .texto1_1{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#808285;
+}
+
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto2Geral{
+	float:left;
+	padding:0 10px;
+	width:170px;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto2Geral .texto2{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#799b28;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto2Geral .texto2_2{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#808285;
+}
+
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto3Geral{
+	float:left;
+	padding:10px;
+	width:170px;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto3Geral .texto3{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#799b28;
+}
+.proximaConsultaGeral .consultaGeral .dadosMedicoGeral .texto3Geral .texto3_3{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#808285;
+}
+
+.proximaConsultaGeral .consultaGeral .medicoGeral{
+	float:left;
+	padding:0;
+}
+.proximaConsultaGeral .consultaGeral .medicoGeral .foto{
+	float:left;
+	border:1px solid #5c7a1c;
+}
+
+.proximaConsultaGeral .consultaGeral .btnCancela{
+	float:left;
+	padding:0px 10px;
+}
+
+.aguardandoConfirmacaoGeral{
+	float:left;
+	padding:0;
+	width:960px;
+}
+.aguardandoConfirmacaoGeral .barra{
+	float:left;
+	padding:0;
+	background:url(Images/barraAguardeConfirmacao.jpg) no-repeat;
+	width:958px;
+	height:38px;
+}
+
+
+.aguardandoConfirmacaoGeral .consultaGeral .caixaDr{
+	float:left;
+	width:350px;
+	height:200px;
+}
+.aguardandoConfirmacaoGeral .consultaGeral .caixaLinha{
+	float:left;
+	background:url(Images/linhaConsultasConfirmadas.jpg) no-repeat 3px 0;
+	width:10px;
+	height:200px;
+}
+.aguardandoConfirmacaoGeral .consultaGeral .caixaData{
+	float:left;
+	width:250px;
+	height:200px;
+}
+.aguardandoConfirmacaoGeral .consultaGeral .caixaMapa{
+	float:right;
+	width:325px;
+	height:200px;
+}
+
+
+.aguardandoConfirmacaoGeral .consultaGeral  .texto1Geral{
+	float:left;
+	padding:0 10px 10px;
+	width:170px;
+}
+.aguardandoConfirmacaoGeral .consultaGeral .texto1Geral .texto1{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#799b28;
+}
+.aguardandoConfirmacaoGeral .consultaGeral  .texto1Geral .texto1_1{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#808285;
+}
+
+.aguardandoConfirmacaoGeral .consultaGeral  .texto2Geral{
+	float:left;
+	padding:0 10px;
+	width:170px;
+}
+.aguardandoConfirmacaoGeral .consultaGeral  .texto2Geral .texto2{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#799b28;
+}
+.aguardandoConfirmacaoGeral .consultaGeral .texto2Geral .texto2_2{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#808285;
+}
+
+.aguardandoConfirmacaoGeral .consultaGeral  .texto3Geral{
+	float:left;
+	padding:10px;
+	width:170px;
+}
+.aguardandoConfirmacaoGeral .consultaGeral  .texto3Geral .texto3{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#799b28;
+}
+.aguardandoConfirmacaoGeral .consultaGeral  .texto3Geral .texto3_3{
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#808285;
+}
+
+.aguardandoConfirmacaoGeral .consultaGeral .medicoGeral{
+	float:left;
+	padding:0;
+}
+.aguardandoConfirmacaoGeral .consultaGeral .medicoGeral .foto{
+	float:left;
+    border: 3px solid #5c7a1c; 
+    border-radius: 5PX;
+}
+
+.aguardandoConfirmacaoGeral .consultaGeral .btnCancela{
+	float:left;
+	padding:0px 10px;
+}
+.consultasCanceladasGeral{
+	float:left;
+	width:958px;
+}
+.barra{
+	float:left;
+	padding:0;
+	background:url(Images/barraConsultaCancelada.jpg) no-repeat;
+	width:958px;
+	height:38px;
+}
+
+.caixaGeralCanceladas{
+	float:left;
+	padding:0 20px 5px;
+	width:958px;
+}
+.caixaGeralCanceladas .coluna1{
+	float:left;
+	width:245px;
+	background:#e6e7e8;
+}
+.caixaGeralCanceladas .coluna1 .textoGeral{
+	float:left;
+	padding:10px;
+	width:225px;
+}
+.caixaGeralCanceladas .coluna1 .textoGeral .texto1{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#ed1c24;
+	font-weight:bold;
+}
+.caixaGeralCanceladas .coluna1 .textoGeral .texto2{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#808285;
+}
+
+
+.caixaGeralCanceladas .coluna2{
+	float:left;
+	width:235px;
+}
+
+.caixaGeralCanceladas .coluna2 .textoGeral{
+	float:left;
+	padding:10px;
+	width:225px;
+}
+.caixaGeralCanceladas .coluna2 .textoGeral .texto1{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#ed1c24;
+	font-weight:bold;
+}
+.caixaGeralCanceladas .coluna2 .textoGeral .texto2{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#808285;
+}
+
+.caixaGeralCanceladas .coluna3{
+	float:left;
+	width:235px;
+}
+.caixaGeralCanceladas .coluna3 .textoGeral{
+	float:left;
+	padding:10px;
+	width:225px;
+}
+.caixaGeralCanceladas .coluna3 .textoGeral .texto1{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#ed1c24;
+	font-weight:bold;
+}
+.caixaGeralCanceladas .coluna3 .textoGeral .texto2{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#808285;
+}
+.caixaGeralCanceladas .coluna4{
+	float:left;
+	width:235px;
+}
+.caixaGeralCanceladas .coluna4 .textoGeral{
+	float:left;
+	padding:10px;
+	width:225px;
+}
+.caixaGeralCanceladas .coluna4 .textoGeral .texto1{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#ed1c24;
+	font-weight:bold;
+}
+.caixaGeralCanceladas .coluna4 .textoGeral .texto2{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#808285;
+}
+
+.consultasRealizadas{
+	float:left;
+	width:958px;
+}
+.consultasRealizadas .barra{
+	float:left;
+	padding:0;
+	background:url(Images/barraConsultaRealizadas.jpg) no-repeat;	
+	width:958px;
+	height:38px;
+}
+
+
+.textoVerdeRealizadas{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#799b28;
+	font-weight:bold;
+}
+
+
+#motivoCancelamentoGeral2{
+	background:#fff;
+}
+
+.motivoCancelamentoGeral2{
+	float:left;
+	padding:10px;
+	width:550px;
+	border:1px solid #999;
+	height:213px;
+	background:#fff;
+	position:relative;
+	z-index:9999;
+}
+.motivoCancelamentoGeral2 .titulo2{
+	float:left;
+	width:500px;
+	padding:10px 0;
+	font:14px Arial, Helvetica, sans-serif;
+	color:#939895;
+	font-weight:bold;
+}
+.motivoCancelamentoGeral2 .caixa2{
+	float:left;
+	padding:10px 10px;
+	width:500px;
+	height:125px;
+	border:1px solid #ed1c24;
+	border-radius:5px;
+}
+
+.motivoCancelamentoGeral2 .confirma2{
+	float:right;
+	padding:10px 10px;
+}
+.motivoCancelamentoGeral2 #btnCancelamento2{
+	width:250px;
+	height:30px;
+	border:none;
+	padding:5px;
+	background:#FF0000;
+	font:12px Arial, Helvetica, sans-serif;
+	color:#fff;
+	border-radius:5px;
+	cursor:pointer;
+	float:right;
+}
+.motivoCancelamentoGeral2 #btnCancelamento2:hover{
+	background:#900;
+	font:12px Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+
+.motivoCancelamentoGeral2 #caixaCancelamento2{
+	border:none;
+	font:14px Arial, Helvetica, sans-serif;
+	color:#939895;
+}
+
+.motivoCancelamentoGeral2 #caixaHorarioConfirmacao2{
+	border: 1px solid;
+	font:14px Arial, Helvetica, sans-serif;
+	color:#939895;
+	width:500px;
+}
+
+.minhaConsultasGeral{
+	float:left;
+	padding:0;
+	width:1001px;
+}
+.minhaConsultasGeral .tituloGeral{
+	float:left;
+	width:1001px;
+	padding:0 0 30px 0;
+}
+.minhaConsultasGeral .tituloGeral .titulo{
+	font:22px Arial, Helvetica, sans-serif;
+	color:#52595b;
+}
+.minhaConsultasGeral .marcaConsultaGeralMinhas{
+	float:right;
+	width:143px;
+	height:45px;
+	background:url(Images/minhasConsultasMarcarBackground.jpg) no-repeat;
+	position:relative;
+	top:26px;
+	left:-10px;
+}
+.minhaConsultasGeral .marcaConsultaGeralMinhas .iconeGeral{
+	float:left;
+	width:20px;
+}
+.minhaConsultasGeral .marcaConsultaGeralMinhas .iconeGeral .icone{
+	padding:9px 6px;
+}
+
+.minhaConsultasGeral .marcaConsultaGeralMinhas .textoGeral{
+	float:right;
+	width:100px;
+	padding:15px 8px 0 0;
+}
+.minhaConsultasGeral .marcaConsultaGeralMinhas .textoGeral .texto{
+	text-align:right;
+}
+.minhaConsultasGeral .marcaConsultaGeralMinhas .textoGeral .texto a{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+}
+.minhaConsultasGeral .marcaConsultaGeralMinhas .textoGeral .texto a:hover{
+	color:#00722e;
+}
+
+
+#tabs {
+    height: 400px;
+}
+
+.texto1 {
+    font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #799b28;
+}
+
+.texto1_1 {
+    font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #808285;
+}
+
+.caixa1Geral {
+    border: 1px solid #939895;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.caixa1Geral .topoGeral .titulo {
+    text-align: center;
+    color: white;
+    background-color: green;
+    height: 30px;
+    font-size: 14px;
+    vertical-align: middle;
+    padding-top: 8px;
+    font-weight: bold;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.caixa2Geral {
+ 
+    border: 1px solid #939895;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+.caixa2Geral .topoGeral .titulo {
+    text-align: center;
+    color: white;
+    background-color: red;
+    height: 30px;
+    font-size: 14px;
+    vertical-align: middle;
+    padding-top: 8px;
+    font-weight: bold;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.meioGeral {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid gray;
+    margin-bottom: 20px;
+}
+
+ .caixaLinha {
+        float: left;
+        background: url(/Content/Images/linhaConsultasConfirmadas.jpg) no-repeat 3px 0;
+        width: 10px;
+        height: 200px;
+    }
+
+
+.meioGeral .texto1{
+    font: 14px Arial, Helvetica, sans-serif;
+    color: #0f0f0f;
+    padding-bottom: 20px;
+}
+
+.meioGeral .texto2{
+    font: 14px Arial, Helvetica, sans-serif;
+    color: #799b28;
+    padding-bottom: 20px;
+}
+
+.photo {
+    width: 150px;
+    border: 3px solid #097b40;
+    border-radius: 15px;
+}
+
+.boldGreen {
+    font: 15px Arial, Helvetica, sans-serif;
+    color: #097b40;
+    font-weight: bold;
+}
+
+
+.normalGreen {
+    font: 13px Arial, Helvetica, sans-serif;
+    color: #097b40;
+}
+
+.normalText {
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+}
+
+.consultaGeral {
+    float:left;
+	height: 290px;
+    width: 100%;
+    overflow: scroll;
+    margin-bottom: 25px;
+}
+
+#libtnSearch {
+    background-color: #097b40;
+}
+
+#divWaiting {
+    position: fixed;
+    top: 200px;
+    height: 250px;
+    width: 40%;
+    /* margin: auto; */
+    margin-left: 10%;
+    background-color: #ffffff;
+    border: 10px solid black;
+    border-radius: 50px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#logoWaiting {
+   margin-top: 30px;
+    margin-left: 30%;
+}
+
+#spnWaiting {
+    margin-left: 25%;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#imgWaiting {
+    margin-left: 40%;
+    margin-top: 30px;
+}
+
+#divRequest {
+    margin: 0 auto;
+    width: 85%;
+    background-color: #d1d1d1;
+    border-radius: 8px;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    #divRequest a {
+        text-decoration: underline;
+    }
+
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+.clinicLine {
+    font-size: 11px;
+    color:#8c8c8c; 
+    margin-left: -20px;
+}
+
+.control-label {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#physicianMenu {
+    background-color:  #097b40;
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+#physicianMenu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#physicianMenu ul li {
+   display: inline;
+   margin-left: 10px;
+    border-right: 1px solid #ffffff;
+    padding-right: 20px;
+}
+
+#physicianMenu ul li:last-child {
+ 
+    border-right: none;
+   
 }
